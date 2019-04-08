@@ -4,10 +4,6 @@ interface Person {
   lastName: string;
 }
 
-function greeter({ firstName, lastName }: Person) {
-  return "Hello, " + firstName + " " + lastName;
-}
-
 let user = { firstName: "Jane", lastName: "User" };
 
 if (greeter(user) !== "Hello, Jane User") {
