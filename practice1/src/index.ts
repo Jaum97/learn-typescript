@@ -1,30 +1,15 @@
 const { log: l } = console;
-
-function greeter(person: string) {
-    return typeof(person)==='string' 
-    ? "Hello, " + person
-    : new TypeError(`Expected String, received: ${person}`) 
+interface Person {
+  firstName: string;
+  lastName: string;
 }
 
-const user = "Jane User";
-const user2 = 3;
-const user3 = [0,1,2];
-
-l(greeter(user));
-l(greeter(user2));
-l(typeof(greeter(user3));
-l(greeter());
-
-
-
-if(greeter('Jane User') !== 'Hello, Jane User'){
-    throw new Error('Happy path failed')
+function greeter({ firstName, lastName }: Person) {
+  return "Hello, " + firstName + " " + lastName;
 }
 
-if(!greeter(3) instanceof TypeError){
-    throw new Error('Type check failed')   
+let user = { firstName: "Jane", lastName: "User" };
+
+if (greeter(user) !== "Hello, Jane User") {
+  throw Error("Happy path failed");
 }
-
-
-
-
