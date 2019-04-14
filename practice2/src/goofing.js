@@ -17,9 +17,9 @@ const People = [
 
 const test = testpluck(testpluck(People, "otherInfo"), "age");
 
-test;
+test; // [ 25, 40 ]
 
 const [first, second] = testpluck(testpluck(People, "otherInfo"), "age");
 
-first;
-second;
+first; // 25
+second; // 40
