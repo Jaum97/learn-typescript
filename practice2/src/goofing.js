@@ -1,4 +1,4 @@
-const testpluck = (collection, key) => collection.map(obj => obj[key]);
+const testpluck = (collection, key, depth) => collection.map(obj => obj[key]);
 
 const People = [
   {
@@ -23,3 +23,19 @@ const [first, second] = testpluck(testpluck(People, "otherInfo"), "age");
 
 first; // 25
 second; // 40
+
+Array.prototype.pluck = function(key) {
+  return this.map(obj => obj[key]);
+};
+
+animals = [
+  { name: "Fred", species: "dog" },
+  { name: "Bob", species: "dog" },
+  { name: "Jimmy", species: "fish" },
+  { name: "Spencer", species: "turtle" },
+  { name: "Robert", species: "cat" }
+];
+
+const testanimals = animals.pluck("name");
+
+testanimals;
